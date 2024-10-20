@@ -1,0 +1,32 @@
+@import url("theme.css");
+
+.bar {
+    font-family: monospace Bold;
+    font-size: 0.8rem;
+    color: @text-color;
+}
+
+.bar .in-bar {
+    margin: 10px 10px 0px 10px;
+
+    /* place it back in the .module > * selector */
+    background: transparent /* @bg-color */;
+    border-radius: 5px;
+}
+
+.bar .module > * {
+    padding: 0px 5px;
+}
+
+.bar .text-button {
+    padding: 0 2px;
+    background: none;
+    color: @alt-color;
+    border: none;
+    box-shadow: none;
+    font-size: 0.7rem;
+}
+
+.bar .active {
+    color: @text-color;
+}

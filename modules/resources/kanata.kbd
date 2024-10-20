@@ -1,0 +1,10 @@
+(defalias
+    cap (tap-dance 200 (lmet lctl))
+)
+
+(defsrc        caps)
+(deflayer main @cap)
+
+(defcfg
+    process-unmapped-keys yes
+)
