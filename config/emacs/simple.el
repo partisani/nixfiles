@@ -63,5 +63,5 @@
                                 (alpha . 80)))
   (mini-frame-resize nil)
   :config
-  (setq mini-frame-standalone t)
+  (setq mini-frame-standalone nil)
   (mini-frame-mode))
