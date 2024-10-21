@@ -14,12 +14,6 @@
         ## game dev ##
         godot_4
 
-        ## editors ##
-        helix
-        kakoune
-        # kakoune plugins #
-        kakoune-lsp
-
         ## languages ##
         # js #
         deno
