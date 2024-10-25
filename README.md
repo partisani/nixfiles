@@ -7,8 +7,7 @@
   </h1>
 
   
-  [<kbd> <br> Usage <br> </kbd>](Usage)
-  [<kbd> <br> Structure <br> </kbd>](Structure)
+  [<kbd> <br> Intro <br> </kbd>](Intro)
 </div>
 
 ### Intro
