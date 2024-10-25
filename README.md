@@ -13,13 +13,4 @@
 
 ### Intro
 
-This is a simple and small config (some things not included) that i have been using for quite some time now
-
-### Usage
-
-<sub>not tested</sub>
-
-### Structure
-
-This configuration is split into two main parts: `config/` (home-manager) and `modules/` (system),
-each one defines some aspects of the system, installed packages and their configuration
+This is the second version/rewrite of my nix config.
