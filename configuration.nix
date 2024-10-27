@@ -11,8 +11,13 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = false;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.useOSProber = true;
+  boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
 
   networking.hostName = "nix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -50,10 +55,7 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "br";
-    variant = "abnt2";
-  };
+  services.xserver.xkb.layout = "br";
 
   # Configure console keymap
   console.keyMap = "br-abnt2";
@@ -105,6 +107,7 @@
     git
 
     prismlauncher
+    lunar-client
     temurin-bin-8
     temurin-bin-17
     temurin-bin-21
