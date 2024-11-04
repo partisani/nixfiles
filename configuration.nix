@@ -19,7 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
 
-  networking.hostName = "nix"; # Define your hostname.
+  networking.hostName = "nix-laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -111,6 +111,10 @@
     temurin-bin-8
     temurin-bin-17
     temurin-bin-21
+
+    steam
+
+    ani-cli
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
