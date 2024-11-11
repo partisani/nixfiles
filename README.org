@@ -1,0 +1,20 @@
+
+* My NixOS Configuration
+
+This is the second rewrite of my NixOS configuration,
+fully working with Wayland and (in the future) X11,
+
+** Structure
+
+As you can see (i think), there are a number of directories:
+
+- The ~hosts/~ directory contains files/directories
+  for all the machines this configuration is going
+  to run in.
+- The ~modules/~ directory contains files/directories
+  that encapsulate some behaviour and can be imported
+  into a host via ~inputs.modules~.
+- The ~utils/~ directory is the home for a custom
+  library i wrote, that makes this sort of /automagic/
+  configuration possible.
+  
