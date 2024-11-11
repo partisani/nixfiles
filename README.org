@@ -1,8 +1,9 @@
-
+#+BEGIN_CENTER
 * My NixOS Configuration
 
 This is the second rewrite of my NixOS configuration,
 fully working with Wayland and (in the future) X11,
+#+END_CENTER
 
 ** Structure
 
