@@ -12,13 +12,11 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
-;;(use-package base16-theme
-;;  :ensure t
-;;  :config
-;;  (require 'base16-autogen-theme "~/.config/emacs/base16-autogen-theme.el")
-;;  (load-theme 'base16-autogen t))
-
-(load-theme 'adwaita t)
+(use-package base16-theme
+  :ensure t
+  :config
+  (require 'base16-autogen-theme "~/.config/emacs/base16-autogen-theme.el")
+  (load-theme 'base16-autogen t))
 
 ;; Better minibuffer usage and posframes
 (use-package ivy
@@ -38,7 +36,7 @@
   :config
   (which-key-mode))
 
-
+;; Yet another modal editing package
 (use-package boon
   :ensure t
   :config
@@ -72,13 +70,11 @@
 
 ;; Programming language support
 (use-package rustic :ensure t)
+(use-package nix-mode :ensure t)
 
 ;; Tabs absolutely SUCK
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-
-;; Translate ESC to C-g for ease of use
-(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
 ;; Custom modeline
 (setq-default mode-line-format
@@ -90,6 +86,9 @@
 ;; My own customization file
 (load-file "~/.config/emacs/simple.el")
 
-;; I hate customize...
+;; I hate customize, and backups...
+(setq backup-inhibited t)
+(setq auto-save-default nil)
+
 (setq custom-file "~/.config/emacs/custom.el")
 (load-file custom-file)

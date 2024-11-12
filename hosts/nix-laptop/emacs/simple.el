@@ -10,7 +10,7 @@
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; Internal border width = padding
-(add-to-list 'default-frame-alist '(internal-border-width . 20))
+(add-to-list 'default-frame-alist '(internal-border-width . 5))
 
 ;; Use headerline instead of modeline
 (setq-default header-line-format mode-line-format)
@@ -50,7 +50,7 @@
   (enlight-content
    (enlight-menu
     '(("Quick Access"
-       ("Nix configuration" (dired ".config/nix") "f"))
+       ("Switch to project" (call-interactively 'project-switch-project) "f"))
       ("Misc"
        ("Find files" find-file "F")
        ("New scratch buffer" scratch-buffer "b")
@@ -65,6 +65,10 @@
                                 (left . 0.5)
                                 (alpha . 80)))
   (mini-frame-resize nil)
+
   :config
-  (setq mini-frame-standalone nil)
+  (setq mini-frame-standalone t)
   (mini-frame-mode))
+
+;; Font
+(set-frame-font "monospace-10" nil t)

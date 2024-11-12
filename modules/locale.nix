@@ -22,7 +22,7 @@ let cfg = config.machine.locale; in {
         
         layout = mkOption {
             type = types.str;
-            default = cfg.language;
+            default = "en";
         };
     };
     
