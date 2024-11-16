@@ -6,7 +6,7 @@ let cfg = config.machine.wm.hyprland; in
 {
   options.machine.wm.hyprland = {
     settings = mkOption {
-      type = types.attrs;
+      type = types.attrsOf types.anything;
       default = {};
     };
   };

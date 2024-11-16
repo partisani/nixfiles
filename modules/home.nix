@@ -21,7 +21,7 @@ in {
     };
     
     options.machine.home = mkOption {
-        type = types.attrs;
+        type = types.attrsOf types.anything;
         default = {};
     };
     

@@ -10,7 +10,7 @@
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; Internal border width = padding
-(add-to-list 'default-frame-alist '(internal-border-width . 5))
+(add-to-list 'default-frame-alist '(internal-border-width . 10))
 
 ;; Use headerline instead of modeline
 (setq-default header-line-format mode-line-format)

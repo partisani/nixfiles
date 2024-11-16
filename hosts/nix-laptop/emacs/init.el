@@ -79,7 +79,7 @@
 ;; Custom modeline
 (setq-default mode-line-format
               '(
-                "= "
+                "󰍜 "
                 (:eval (boon-state-string))
                 " %b "))
 

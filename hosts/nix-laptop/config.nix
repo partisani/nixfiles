@@ -2,22 +2,11 @@
 
 {
   imports = with inputs.modules; [
-    # Most modules can be imported just by their path
-    # but some, that take arguments, need to be imported first,
-    # then the arguments need to be passed.
-    
-    # You may be asking yourself: Why?
-    # My answer: i don't want to add another level of nesting
-    # just for a single value (username)
-    
-    # This solution may not be optimal for some modules, like
-    # the emacs one, so i will just add them to `machine` instead.
-    
     # Just to make configuration cleaner, i moved a lot of
     # the things that should be the same for every host inside
     # of this module.
     default
-    
+
     # (Multi) language settings
     locale
     
@@ -27,16 +16,19 @@
     # A module for colors, probably required for most of the apps.
     colors
     
+    # Nushell, my configuration depends on it
+    shells-nushell
+    
     # Enable window managers/desktop environments.
     wm
-    wm-niri
+    # wm-niri
     wm-hyprland
     
     # Iosevka is a good font
     fonts-iosevka
     
     # Install a few apps.
-    # apps-tofi
+    apps-tofi
     apps-kitty
     apps-emacs
     
@@ -49,15 +41,6 @@
   machine = {
     hostname = "nix-laptop";
     
-    user = {
-      name = "partisani";
-      description = "Isaac";
-    };
-    
-    home = {
-      home.file."home-manager-is-functioning.txt".text = "i can guarantee that if this file was generated, then home-manager works.";
-    };
-    
     locale = {
       language = "en_US.UTF-8";
       alternateLanguage = "pt_BR.UTF-8";
@@ -65,12 +48,23 @@
       layout = "br";
     };
 
-    wm = {
-      hyprland.settings = import ./hyprland.nix args;
+    user = {
+      name = "partisani";
+      description = "Isaac";
     };
+    
+    home = {
+      home.file."home-manager-is-functioning.txt".text =
+        "i can guarantee that if this file was generated, then home-manager works.";
+    };
+
+    shells.nushell.config = ./nushell;
+    
+    wm.hyprland.settings = import ./hyprland.nix args;
     
     apps = {
       emacs.config = ./emacs;
+      tofi.config = import ./tofi.nix args;
     };
   };
 
@@ -90,5 +84,5 @@
     ani-cli
   ];
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment? No, i didn't.
 }

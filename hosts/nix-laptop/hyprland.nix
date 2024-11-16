@@ -71,7 +71,7 @@ with config.scheme;
 
   "$mod" = "WIN";
   "$terminal" = "kitty";
-  "$menu" = ''nu -c "tofi-drun -c $in"'';
+  "$menu" = ''tofi-drun | nu -c $in'';
 
   bind = [
     "$mod, Q, exec, $terminal"
