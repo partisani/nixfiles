@@ -5,7 +5,7 @@ with lib;
 let cfg = config.machine.wm.hyprland; in
 {
   options.machine.wm.hyprland = {
-    settings = mkOption {
+    config = mkOption {
       type = types.attrsOf types.anything;
       default = {};
     };
@@ -16,7 +16,7 @@ let cfg = config.machine.wm.hyprland; in
 
     machine.home.wayland.windowManager.hyprland = {
       enable = true;
-      settings = cfg.settings;
+      settings = cfg.config;
     };
   };
 }

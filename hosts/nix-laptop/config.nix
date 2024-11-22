@@ -13,8 +13,11 @@
     # Create user and set up home-manager.
     home
 
-    # A module for colors, probably required for most of the apps.
+    # A module for colors.
     colors
+
+    # Theme
+    ./themes/paper.nix
     
     # Nushell, my configuration depends on it
     shells-nushell
@@ -27,6 +30,9 @@
     # Iosevka is a good font
     fonts-iosevka
     
+    # Development
+    dev-rust
+
     # Install a few apps.
     apps-tofi
     apps-kitty
@@ -36,7 +42,7 @@
     games
   ];
 
-  scheme = "${inputs.base16-schemes}/base16/katy.yaml";
+  scheme = "${inputs.base16-schemes}/base16/heetch-light.yaml";
   
   machine = {
     hostname = "nix-laptop";
@@ -53,27 +59,24 @@
       description = "Isaac";
     };
     
-    home = {
-      home.file."home-manager-is-functioning.txt".text =
-        "i can guarantee that if this file was generated, then home-manager works.";
-    };
-
     shells.nushell.config = ./nushell;
     
-    wm.hyprland.settings = import ./hyprland.nix args;
+    wm.hyprland.config = import ./hyprland.nix args;
     
     apps = {
-      emacs.config = ./emacs;
       tofi.config = import ./tofi.nix args;
+      kitty.config = import ./kitty.nix args;
+      emacs.config = ./emacs;
     };
   };
 
   # Iosevka is a good font
   fonts.fontconfig.defaultFonts = {
-    monospace = [ "IosevkaHomemade Nerd Font Extended" ];
+    monospace = [ "IosevkaHomemade Nerd Font" ];
     serif = ["Iosevka Aile"];
     sansSerif = ["Iosevka Aile"];
   };
+  machine.home.gtk.font.name = "IosevkaHomemade Nerd Font Extended";
 
   services.printing.enable = true;
 
@@ -82,7 +85,10 @@
   environment.systemPackages = with pkgs; [
     git
     ani-cli
+    swaybg
+    nh
+    nixfmt-rfc-style
   ];
 
-  system.stateVersion = "24.05"; # Did you read the comment? No, i didn't.
+  system.stateVersion = "24.05";
 }

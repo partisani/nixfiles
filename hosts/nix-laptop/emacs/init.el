@@ -71,15 +71,18 @@
 ;; Programming language support
 (use-package rustic :ensure t)
 (use-package nix-mode :ensure t)
+(use-package fasm-mode
+  :git "https://github.com/emacsattic/fasm-mode")
 
 ;; Tabs absolutely SUCK
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+(setq-default c-basic-offset 4)
 
 ;; Custom modeline
 (setq-default mode-line-format
               '(
-                "󰍜 "
+                "󰍜  "
                 (:eval (boon-state-string))
                 " %b "))
 

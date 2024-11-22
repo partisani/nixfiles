@@ -14,12 +14,13 @@ with config.scheme;
   ];
 
   general = {
-    gaps_in = 10;
-    gaps_out = 20;
+    gaps_in = 20;
+    gaps_out = 30;
 
     "col.active_border" = "rgb(${base07})";
     "col.inactive_border" = base00;
 
+    border_size = 5;
     resize_on_border = true;
     allow_tearing = false;
 
@@ -27,12 +28,10 @@ with config.scheme;
   };
 
   decoration = {
-    rounding = 10;
+    rounding = 0;
 
-    active_opacity = 0.9;
-    inactive_opacity = 0.7;
-
-    drop_shadow = false;
+    active_opacity = 1.0;
+    inactive_opacity = 1.0;
 
     blur = {
       enabled = true;
@@ -71,7 +70,7 @@ with config.scheme;
 
   "$mod" = "WIN";
   "$terminal" = "kitty";
-  "$menu" = ''tofi-drun | nu -c $in'';
+  "$menu" = "nu -c 'tofi-drun | nu -c $in'";
 
   bind = [
     "$mod, Q, exec, $terminal"
