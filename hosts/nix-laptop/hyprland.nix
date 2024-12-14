@@ -4,6 +4,8 @@ let std = inputs.nix-std.lib; in
     
 with config.scheme;
 {
+  exec-once = [ "swaybg -c ${base00}" ];
+  
   monitor = [
     ", preferred, auto, auto"
   ];
@@ -14,13 +16,12 @@ with config.scheme;
   ];
 
   general = {
-    gaps_in = 20;
+    gaps_in = 15;
     gaps_out = 30;
 
     "col.active_border" = "rgb(${base07})";
-    "col.inactive_border" = base00;
+    "col.inactive_border" = "rgb(${base04})";
 
-    border_size = 5;
     resize_on_border = true;
     allow_tearing = false;
 
@@ -34,12 +35,14 @@ with config.scheme;
     inactive_opacity = 1.0;
 
     blur = {
-      enabled = true;
+      enabled = false;
       size = 5;
       passes = 3;
       ignore_opacity = true;
       vibrancy = 0.16;
     };
+
+    drop_shadow = false;
   };
 
   animations = {
@@ -118,5 +121,11 @@ with config.scheme;
     ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
     ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  ];
+
+  windowrulev2 = [
+    "float, title:(\\*Minibuf-\\d\\*)"
+    "center, title:(\\*Minibuf-\\d\\*)"
+    "size 315 200, title:(\\*Minibuf-\\d\\*)"
   ];
 }

@@ -7,9 +7,23 @@
         lib =
         let
             lib = nixpkgs.lib;
-            inherit (lib) removeSuffix mapAttrs mapAttrs' nameValuePair nixosSystem;
+            inherit (lib) removeSuffix mapAttrs mapAttrs' nameValuePair nixosSystem
+              zipAttrsWith tail head all isList unique concatLists isAttrs last;
             inherit (builtins) readDir replaceStrings;
         in rec {
+          recursiveMerge = attrList:
+            let f = attrPath:
+                  zipAttrsWith (n: values:
+                    if tail values == []
+                    then head values
+                    else if all isList values
+                    then unique (concatLists values)
+                    else if all isAttrs values
+                    then f (attrPath ++ [n]) values
+                    else last values
+                  );
+            in f [] attrList;
+          
             removeNixSuffix = removeSuffix ".nix";
             
             # Returns an attrset where the key is the host's name

@@ -31,7 +31,7 @@ def create_right_prompt [] {
     ] | str join)
     } else { "" }
 
-    ([$last_exit_code, (char space), $time_segment] | str join)
+    ([$last_exit_code, (char space)] | str join)
 }
 
 # Use nushell functions to define your right and left prompt
@@ -103,3 +103,4 @@ $env.NU_PLUGIN_DIRS = [
 use std "path add"
 
 path add ~/scripts/
+path add ~/.cargo/bin/

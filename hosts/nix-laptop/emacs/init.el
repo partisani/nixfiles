@@ -71,8 +71,6 @@
 ;; Programming language support
 (use-package rustic :ensure t)
 (use-package nix-mode :ensure t)
-(use-package fasm-mode
-  :git "https://github.com/emacsattic/fasm-mode")
 
 ;; Tabs absolutely SUCK
 (setq-default indent-tabs-mode nil)
