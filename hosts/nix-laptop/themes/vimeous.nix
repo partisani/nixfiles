@@ -10,7 +10,7 @@ with config.scheme;
 
     exec-once =
       let
-        vim-bar = pkgs.writeScript "vim-bar" "
+        vim-bar = pkgs.writeScriptBin "vim-bar" "
           #!${pkgs.nushell}/bin/nu
           def bar-command [] {
               let width = (term size).columns

@@ -1,0 +1,19 @@
+scheme: "Acme"
+slug: "plan9-acme"
+author: "partisani"
+base00: "ffffea" #  ----
+base01: "eaffff" #  ---
+base02: "ffffae" #  --
+base03: "a0a0ae" #  -
+base04: "909090" #  +
+base05: "707070" #  ++
+base06: "383838" #  +++
+base07: "000000" #  ++++
+base08: "a0342f" #  red
+base09: "f0ad4e" #  orange
+base0A: "f0dd4e" #  yellow
+base0B: "065905" #  green
+base0C: "aeeeee" #  aqua
+base0D: "5ebeee" #  blue
+base0E: "de8eee" #  purple
+base0F: "a16946" #  brown

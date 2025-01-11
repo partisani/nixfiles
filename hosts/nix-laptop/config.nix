@@ -30,18 +30,22 @@
     
     # Development
     dev-rust
+    dev-c
+    dev-lua
     dev-godot
 
     # Install a few apps.
+    apps-gowall
     apps-tofi
     apps-kitty
     apps-emacs
+    apps-kakoune
     
     # Fun and games.
     games
   ];
 
-  scheme = "${inputs.base16-schemes}/base16/solarized-light.yaml";
+  scheme = "${inputs.base16-schemes}/base16/hardcore.yaml";
   
   machine = inputs.utils.lib.recursiveMerge
     [
@@ -68,28 +72,19 @@
         };
         
         apps = {
+          gowall.colors = config.scheme.toList
+            |> builtins.map (h: "#" + h);
           tofi.config = import ./tofi.nix args;
           kitty.config = import ./kitty.nix args;
           emacs.config = ./emacs;
+          kakoune.config = ./kakoune;
         };
 
         home = {
           gtk.font.name = "IosevkaHomemade Nerd Font Extended";
-
-          home.file.".system/commands-hyprland.json".text = (import ./commands.nix {
-            name = "hyprland";
-
-            commands = {
-              exit = "hyprctl dispatch exit";
-            };
-            
-            term = { name = "kitty"; command = "kitty"; };
-            app-launcher = { name = "tofi"; command = "tofi-drun | nu -c $in"; };
-          })
-          |> builtins.toJSON;
         };
       }
-      (import ./themes/vimeous.nix args) # Theme
+      (import ./themes/round-paper.nix args) # Theme
     ];
 
   # Iosevka is a good font
@@ -119,6 +114,9 @@
     anydesk
     
     obsidian
+
+    lmms
+    krita
   ];
 
   system.stateVersion = "24.05";

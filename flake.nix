@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-crit.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     
     utils.url = "path:utils";
     

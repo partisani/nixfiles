@@ -4,7 +4,7 @@ let std = inputs.nix-std.lib; in
     
 with config.scheme;
 {
-  exec-once = [ "swaybg -c ${base00}" ];
+  exec = [ "pkill swaybg; sleep 1; swaybg -c ${base00}" ];
   
   monitor = [
     ", preferred, auto, auto"
@@ -126,6 +126,6 @@ with config.scheme;
   windowrulev2 = [
     "float, title:(\\*Minibuf-\\d\\*)"
     "center, title:(\\*Minibuf-\\d\\*)"
-    "size 315 200, title:(\\*Minibuf-\\d\\*)"
+    "size 415 250, title:(\\*Minibuf-\\d\\*)"
   ];
 }

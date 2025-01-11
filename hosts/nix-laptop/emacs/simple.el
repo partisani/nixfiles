@@ -12,6 +12,9 @@
 ;; Internal border width = padding
 (add-to-list 'default-frame-alist '(internal-border-width . 10))
 
+;; Font
+(set-frame-font "monospace-12" nil t)
+
 ;; Use headerline instead of modeline
 (setq-default header-line-format mode-line-format)
 (setq-default mode-line-format '(""))
@@ -29,7 +32,7 @@
                       :foreground foreground)
   (set-face-attribute 'mode-line nil
          	          :box `(:line-width 8 :color ,background)
-	                  :underline foreground
+	                  ; :underline foreground
 	                  :height 10
 	                  :background background)
   (set-face-attribute 'mode-line-inactive nil
@@ -69,6 +72,3 @@
   :config
   (setq mini-frame-standalone t)
   (mini-frame-mode))
-
-;; Font
-(set-frame-font "monospace-10" nil t)
